@@ -1,0 +1,22 @@
+{
+  "description": "The codebase for my personal portfolio website.",
+  "author": {
+    "name": "Ethan Schmidt",
+    "email": "es.schmidt.cs@gmail.com",
+    "url": "https://github.com/CS-Schmidt"
+  },
+  "bugs": {
+    "url": "https://github.com/CS-Schmidt/portfolio-website/issues"
+  },
+  "homepage": "https://github.com/CS-Schmidt/portfolio-website#readme",
+  "license": "MIT",
+  "private": "true",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CS-Schmidt/portfolio-website.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
