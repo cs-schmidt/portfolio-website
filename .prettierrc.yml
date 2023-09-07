@@ -1,0 +1,24 @@
+# Prettier Configuration
+
+# General formatting options.
+endOfLine: lf
+printWidth: 80
+proseWrap: always
+tabWidth: 2
+useTabs: false
+
+# JavaScript-specific formatting options.
+arrowParens: always
+bracketSpacing: true
+quoteProps: as-needed
+semi: true
+singleQuote: true
+trailingComma: none
+
+# HTML, JSX, and other formatting options.
+bracketSameLine: false
+embeddedLanguageFormatting: auto
+htmlWhitespaceSensitivity: css
+jsxSingleQuote: false
+singleAttributePerLine: false
+vueIndentScriptAndStyle: false
