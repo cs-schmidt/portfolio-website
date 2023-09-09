@@ -17,12 +17,17 @@
     "url": "git+https://github.com/CS-Schmidt/portfolio-website.git"
   },
   "scripts": {
+    "lint:js": "eslint --ignore-path .gitignore --fix . --ext .cjs,.js,.mjs,.jsx",
     "format": "prettier --ignore-path .gitignore --ignore-unknown --write .",
     "prepare": "husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
+    "eslint": "^8.28.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.31.11",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.4",
     "prettier": "^2.8.0"
