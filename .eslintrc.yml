@@ -11,7 +11,7 @@ env:
   browser: true
   node: true
 
-# Lists the configurations we're inheriting properties from.
+# Lists the eslint configurations we're inheriting properties from.
 extends:
   - 'plugin:react/recommended' # extends `eslint-plugin-react`
   - 'airbnb' # extends `eslint-config-airbnb`
@@ -24,8 +24,7 @@ parserOptions:
     jsx: true
   sourceType: 'module'
 
-# List the of third-party plugins we want to incorporate into eslint to extend
-# it's capabilities.
+# Lists the of third-party plugins which extend eslint's capabilities.
 plugins:
   - 'react' # adds `eslint-plugin-react`
 
@@ -34,3 +33,10 @@ plugins:
 settings:
   react:
     version: 'detect'
+
+# Additional eslint rules.
+rules:
+  # Allows importing extraneous dependencies (devDependencies in particular).
+  import/no-extraneous-dependencies:
+    - 'error'
+    - devDependencies: true
