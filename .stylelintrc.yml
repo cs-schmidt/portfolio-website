@@ -1,7 +1,7 @@
 # Stylelint Configuration
 
-# Lists the configurations we're inheriting properties from. Each successive
-# config specified will take precedence over the previous.
+# Lists the stylelint configurations we're inheriting properties from. Each
+# successive config specified will take precedence over the previous.
 extends:
   - 'stylelint-config-standard-scss'
   - 'stylelint-config-recess-order'
