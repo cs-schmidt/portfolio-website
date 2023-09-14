@@ -17,6 +17,8 @@
     "url": "git+https://github.com/CS-Schmidt/portfolio-website.git"
   },
   "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack serve",
+    "prod": "cross-env NODE_ENV=production webpack build",
     "lint:js": "eslint --ignore-path .gitignore --fix . --ext .cjs,.js,.mjs,.jsx",
     "lint:styles": "stylelint --ignore-path .gitignore --fix '**/*.{css,scss}'",
     "format": "prettier --ignore-path .gitignore --ignore-unknown --write .",
@@ -31,6 +33,7 @@
     "@commitlint/config-conventional": "^17.3.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
     "babel-loader": "^8.3.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.7.2",
     "cssnano": "^5.1.14",
     "eslint": "^8.28.0",
@@ -53,10 +56,14 @@
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-recess-order": "^3.0.0",
     "stylelint-config-standard-scss": "^6.1.0",
-    "webpack": "^5.75.0"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0",
+    "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
     "@babel/runtime": "^7.20.6",
-    "core-js": "^3.26.1"
+    "core-js": "^3.26.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

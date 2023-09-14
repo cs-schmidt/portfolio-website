@@ -31,7 +31,7 @@ module.exports = {
     path: join(contextPath, 'public/'),
     // Controls if bundles include comments with information about contained
     // modules. This should be disabled in production.
-    pathInfo: isDevEnv,
+    pathinfo: isDevEnv,
     // Sets the public URL of the output directory when referenced in a browser.
     // The value of this option is prefixed to every URL created by the runtime
     // or loaders.
@@ -88,7 +88,7 @@ module.exports = {
   // Lists the of third-party plugins which extend webpack's capabilities.
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
+      filename: '[name].html',
       template: join(contextPath, 'src/index.html')
     }),
     new MiniCSSExtractPlugin({
