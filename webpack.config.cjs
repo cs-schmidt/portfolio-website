@@ -4,6 +4,7 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { SourceMapDevToolPlugin } = require('webpack');
 
 // Sets `contextPath` to the closest parent directory with a `package.json` file
 // or `node_modules` folder. In most cases this would be the project root.
@@ -39,7 +40,7 @@ module.exports = {
     // or loaders.
     publicPath: 'auto',
     // Sets the filename of "initial" chunk files.
-    filename: isDevEnv ? '[name].bundle.js' : '[name].[contenthash].chunk.js',
+    filename: isDevEnv ? '[name].bundle.js' : '[name].[contenthash].bundle.js',
     // Sets the filename of "non-initial" chunk files.
     chunkFilename: isDevEnv
       ? '[name].bundle.js'
@@ -117,6 +118,15 @@ module.exports = {
             generateStatsFile: true,
             statsFilename: '.info/bundle-stats.json'
           })
-        ])
+        ]),
+    ...(nodeEnv !== 'deployment'
+      ? // Non-deployment env plugins.
+        [
+          new SourceMapDevToolPlugin({
+            filename: 'maps/[file].map'
+          })
+        ]
+      : // Deployment-specific plugins.
+        [])
   ]
 };
