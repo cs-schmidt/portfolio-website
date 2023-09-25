@@ -40,3 +40,8 @@ rules:
   import/no-extraneous-dependencies:
     - 'error'
     - devDependencies: true
+overrides:
+  - files: ['webpack.config.cjs']
+    rules:
+      no-nested-ternary:
+        - 'warn'
