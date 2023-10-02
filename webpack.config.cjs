@@ -13,6 +13,7 @@ const { SourceMapDevToolPlugin } = require('webpack');
 // Sets `contextPath` to the closest parent directory with a `package.json` file
 // or `node_modules` folder. In most cases this would be the project root.
 const contextPath = process.env.npm_config_local_prefix;
+const maxInlineSize = 8192; // Maximum inlining asset size in KB.
 const nodeEnv = process.env.NODE_ENV;
 const isDevEnv = nodeEnv === 'development';
 
@@ -94,6 +95,18 @@ module.exports = {
           // Processes SASS files compiling them to CSS files.
           'sass-loader'
         ]
+      },
+      {
+        test: /\.(?:bmp|webp|gif|jpeg|png|svg|avif|ico)$/i,
+        type: 'asset',
+        generator: {
+          filename: 'images/[name].[hash][ext]'
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: maxInlineSize
+          }
+        }
       }
     ]
   },
