@@ -1,0 +1,239 @@
+/* ==========================================================================
+   Navbar Styles
+   ========================================================================== */
+
+/* Contains the styling for the site-wide navigation component. */
+
+@use '../../vars' as v;
+@use 'sass:math';
+@use 'sass:color';
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  height: v.$main-nav-height;
+  padding: 0 16px;
+}
+
+.main-nav__logo {
+  padding: 12px;
+  border-radius: 32px;
+
+  & > img {
+    vertical-align: middle;
+  }
+
+  &:focus {
+    outline: 1px solid v.$color-focused;
+  }
+}
+
+.main-nav__menu {
+  $golden-ratio: math.div(1 + math.sqrt(5), 2);
+
+  position: fixed;
+  top: 0;
+  right: -100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: math.percentage(math.div(1, $golden-ratio));
+  max-width: 250px;
+  height: 100dvh;
+  padding: v.$main-nav-height 8px 16px;
+  transition: right 400ms ease-out, background-color 400ms ease-in;
+
+  &--toggled {
+    right: 0;
+    background-color: v.$color-section-bg;
+  }
+}
+
+.main-nav__menu-toggle {
+  $toggle-size: 32px;
+  $toggle-padding: calc(math.div(1, 8) * $toggle-size);
+  $bar-width: calc($toggle-size - (2 * $toggle-padding));
+  $bar-height: calc(math.div($bar-width, 5));
+  $toggle-top-offset: calc(math.div((64px - $toggle-size), 2));
+
+  position: fixed;
+  top: $toggle-top-offset;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: $toggle-size;
+  height: $toggle-size;
+  padding: $toggle-padding;
+  background-color: transparent;
+  border-radius: $toggle-padding;
+
+  &-bar {
+    width: $bar-width;
+    height: $bar-height;
+    background-color: v.$color-primary;
+    border-radius: calc(math.div($bar-height, 3));
+  }
+
+  &-bar:nth-of-type(1) {
+    transition: transform 200ms ease-in;
+  }
+
+  &-bar:nth-of-type(2) {
+    transition: opacity 150ms ease-in;
+  }
+
+  &-bar:nth-of-type(3) {
+    transition: transform 200ms ease-in;
+  }
+
+  &--toggled > &-bar:nth-of-type(1) {
+    transform: translateY(calc(2 * $bar-height)) rotate(-45deg);
+  }
+
+  &--toggled > &-bar:nth-of-type(2) {
+    opacity: 0;
+  }
+
+  &--toggled > &-bar:nth-of-type(3) {
+    transform: translateY(calc(-2 * $bar-height)) rotate(45deg);
+  }
+
+  &:focus {
+    outline: 1px solid v.$color-focused;
+  }
+}
+
+.main-nav__section-links {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.25rem;
+  font-weight: 600;
+
+  & > li {
+    width: 100%;
+    border-top: 1px solid v.$color-primary;
+  }
+
+  & > li > button {
+    width: inherit;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 8px;
+    font-size: inherit;
+    color: v.$color-primary;
+    text-align: left;
+  }
+
+  & > li > button > svg {
+    margin-right: 12px;
+  }
+
+  & > li > button:focus {
+    outline: 1px solid v.$color-focused;
+  }
+}
+
+.main-nav__external-links {
+  display: flex;
+  padding-top: 12px;
+  font-size: 2rem;
+  border-top: 1px solid v.$color-primary;
+
+  & > li {
+    width: 100%;
+    text-align: center;
+  }
+
+  & > li > a {
+    width: 100%;
+    padding: 4px 8px;
+    color: v.$color-primary;
+  }
+
+  & > li > a:focus {
+    outline: 1px solid v.$color-focused;
+  }
+}
+
+@media (min-width: 600px) {
+  .main-nav__menu {
+    position: static;
+    flex-direction: row;
+    column-gap: 4px;
+    width: auto;
+    max-width: none;
+    height: auto;
+    padding: unset;
+  }
+
+  .main-nav__section-links {
+    $link-side-padding: 4px;
+
+    flex-direction: row;
+    column-gap: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+
+    & > li {
+      display: flex;
+      border-top: none;
+    }
+
+    & > li > button {
+      position: relative;
+      align-items: center;
+      padding: 0 $link-side-padding;
+      color: color.change(v.$color-primary, $alpha: 0.75);
+      border-radius: 4px;
+      transition: color 150ms ease-in;
+    }
+
+    & > li > button::after {
+      position: absolute;
+      bottom: 6px;
+      left: $link-side-padding;
+      width: 0;
+      height: 1px;
+      content: '';
+      background-color: v.$color-primary;
+      transition: width 150ms ease-in;
+    }
+
+    & > li > button:hover,
+    & > li > button:focus {
+      color: v.$color-primary;
+    }
+
+    & > li > button:hover::after,
+    & > li > button:focus::after {
+      width: calc(100% - 2 * $link-side-padding);
+    }
+  }
+
+  .main-nav__external-links {
+    flex-direction: row;
+    column-gap: 4px;
+    padding: 0;
+    font-size: 1.5rem;
+    border-top: none;
+
+    & > li > a {
+      width: auto;
+      padding: 0 4px;
+      color: color.change(v.$color-secondary, $alpha: 0.75);
+      border-radius: 4px;
+      transition: color 150ms ease-in;
+    }
+
+    & > li > a:hover,
+    & > li > a:focus {
+      color: v.$color-secondary;
+    }
+  }
+}

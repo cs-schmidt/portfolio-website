@@ -1,0 +1,19 @@
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+
+/* SASS partial for key static variables used throughout the application. */
+
+/* Static page-agnositc variables. */
+$main-nav-height: 64px;
+
+/* Color palette */
+$color-main: #141414; /* for the background and other elements. */
+$color-primary: #faf3dd; /* for text, icons, etc. */
+$color-secondary: #ff715b; /* for interactive elements, accents, etc. */
+$color-section-bg: rgb(11 11 11 / 90%);
+$color-focused: grey;
+
+/* Typography */
+$font-family-main: 'Source Sans Pro', sans-serif;
+$font-family-alt: 'Source Code Pro', sans-serif;

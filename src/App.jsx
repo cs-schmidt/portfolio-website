@@ -1,6 +1,11 @@
 import React from 'react';
+import MainNavbar from './components/Main-Navbar';
 import './app.scss';
 
 export default function App() {
-  return <div>Hello world.</div>;
+  return (
+    <div>
+      <MainNavbar />
+    </div>
+  );
 }
