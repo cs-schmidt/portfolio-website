@@ -97,6 +97,10 @@ module.exports = {
         ]
       },
       {
+        test: /\.glsl$/i,
+        type: 'asset/source'
+      },
+      {
         test: /\.(?:bmp|webp|gif|jpeg|png|svg|avif|ico)$/i,
         type: 'asset',
         generator: {
