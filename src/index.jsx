@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import { initializeApp } from 'firebase/app';
 import App from './App';
 
@@ -16,5 +16,5 @@ initializeApp({
 });
 
 // Create react root and mount application to DOM.
-const root = createRoot(document.querySelector('#root'));
-root.render(<App />);
+const root = document.querySelector('#root');
+ReactDOM.render(<App />, root);
