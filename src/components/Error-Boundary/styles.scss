@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Error Boundary Styles
+   ========================================================================== */
+
+/* Contains styling for the site-wide error boundary components. */
+
+@use '../../vars' as v;
+@use 'sass:color';
+
+.page-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.page-error__message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 40ch;
+  padding: 16px;
+  margin: 16px;
+  color: v.$color-primary;
+  text-align: center;
+  background-color: v.$color-err-msg-bg;
+  border-radius: 8px;
+}
+
+.page-error__heading {
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+}
+
+.page-error__description {
+  margin-bottom: 16px;
+}
+
+.page-error__btn {
+  display: flex;
+  column-gap: 0.5em;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  color: v.$color-main;
+  cursor: pointer;
+  background-color: color.change(v.$color-secondary, $alpha: 0.6);
+  border: 0.125em solid color.change(v.$color-secondary, $alpha: 0.4);
+  border-radius: 0.25em;
+  transition: background-color 200ms ease-in-out, border-color 200ms ease-in-out;
+
+  & > span {
+    font-weight: 600;
+  }
+
+  &:hover {
+    background-color: v.$color-secondary;
+    border-color: v.$color-secondary;
+  }
+}
