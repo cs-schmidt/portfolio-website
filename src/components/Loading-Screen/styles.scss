@@ -8,7 +8,7 @@
 
 .loading-screen {
   position: absolute;
-  z-index: 1000;
+  z-index: calc(v.$main-scroll-z-index + 1);
   display: flex;
   align-items: center;
   justify-content: center;
