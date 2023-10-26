@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCircleQuestion,
@@ -20,9 +21,13 @@ function isMobileBreakpoint() {
 export default function MainNavbar() {
   const [isMobileView, setIsMobileView] = useState(isMobileBreakpoint());
   const [isMenuToggled, setIsMenuToggled] = useState(false);
+  const { scroll } = useLocomotiveScroll();
 
-  function navigateTo() {
-    // TODO: implement this function.
+  function navigateTo(scrollId) {
+    return () => {
+      scroll.scrollTo(scrollId);
+      setIsMenuToggled(false);
+    };
   }
 
   // Handles `isMobileView` state changes when window resizes.
@@ -47,9 +52,7 @@ export default function MainNavbar() {
       <button
         className="main-nav__logo"
         type="button"
-        onClick={function navigateToTop() {
-          // TODO: finish implementing this scroll to top functionality.
-        }}
+        onClick={navigateTo('top')}
         role="link"
         aria-label="back to top"
       >
@@ -85,7 +88,7 @@ export default function MainNavbar() {
           <li>
             <button
               type="button"
-              onClick={navigateTo()}
+              onClick={navigateTo('intro')}
               role="link"
               aria-label="navigates to 'About me' section"
             >

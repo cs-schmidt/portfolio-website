@@ -14,6 +14,18 @@
 @import 'fonts';
 
 :root {
+  /* Page-wide variables. */
+  --page-margin: 16px;
+  --page-width: auto;
+  --page-gutter: 16px;
+  --page-columns: 4;
+
+  $total-page-margin: calc(2 * var(--page-margin));
+  $total-page-gutters: calc((var(--page-columns) - 1) * var(--page-gutter));
+  $total-page-columns: calc(100vw - $total-page-margin - $total-page-gutters);
+
+  --page-column: calc(#{$total-page-columns} / var(--page-columns));
+
   /* Root styles */
   box-sizing: border-box;
 }
@@ -60,4 +72,50 @@ button {
 
 .color-secondary {
   color: v.$color-secondary;
+}
+
+/*
+   Small Tablet Styles
+   ========================================================================== */
+
+@media (min-width: 600px) {
+  :root {
+    --page-columns: 8;
+    --page-margin: 32px;
+  }
+}
+
+/*
+   Intermediate "Tablet-Laptop" Styles 1
+   ========================================================================== */
+
+@media (min-width: 900px) {
+  :root {
+    --page-columns: 12;
+    --page-width: 840px;
+    --page-margin: auto;
+  }
+}
+
+/*
+   Intermediate "Tablet-Laptop" Styles 2
+   ========================================================================== */
+
+@media (min-width: 1240px) {
+  :root {
+    --page-width: auto;
+    --page-margin: 200px;
+  }
+}
+
+/*
+   Desktop and Larger Screen Styles
+   ========================================================================== */
+
+@media (min-width: 1440px) {
+  :root {
+    --page-width: 1040px;
+    --page-gutters: 24px;
+    --page-margin: auto;
+  }
 }
