@@ -52,6 +52,8 @@ rules:
   react/forbid-prop-types:
     - 'error'
     - forbid: ['any', 'array']
+  react/no-array-index-key:
+    - 'warn'
 overrides:
   - files: ['webpack.config.cjs']
     rules:

@@ -70,6 +70,14 @@ button {
   mask-repeat: no-repeat, no-repeat;
 }
 
+.page-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  padding: v.$main-nav-height var(--page-margin) 0;
+}
+
 .color-secondary {
   color: v.$color-secondary;
 }
@@ -94,6 +102,10 @@ button {
     --page-columns: 12;
     --page-width: 840px;
     --page-margin: auto;
+
+    .page-section {
+      padding: v.$main-nav-height 0 0;
+    }
   }
 }
 
@@ -106,6 +118,10 @@ button {
     --page-width: auto;
     --page-margin: 200px;
   }
+
+  .page-section {
+    padding: v.$main-nav-height var(--page-margin) 0;
+  }
 }
 
 /*
@@ -117,5 +133,9 @@ button {
     --page-width: 1040px;
     --page-gutters: 24px;
     --page-margin: auto;
+  }
+
+  .page-section {
+    padding: v.$main-nav-height 0 0;
   }
 }
