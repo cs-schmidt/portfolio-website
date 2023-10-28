@@ -10,6 +10,7 @@ const MainScroll = lazy(() => import('./components/Main-Scroll'));
 const MainNavbar = lazy(() => import('./components/Main-Navbar'));
 const Intro = lazy(() => import('./components/Intro'));
 const About = lazy(() => import('./components/About'));
+const Projects = lazy(() => import('./components/Projects'));
 const MainBackground = lazy(() => import('./components/Main-Background'));
 
 /** App component. */
@@ -48,6 +49,7 @@ export default function App() {
               <Intro start={doneLoading} />
               <main>
                 <About />
+                <Projects />
               </main>
             </div>
           </div>

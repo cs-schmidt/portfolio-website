@@ -99,7 +99,7 @@ export default function MainNavbar() {
           <li>
             <button
               type="button"
-              onClick={navigateTo()}
+              onClick={navigateTo('#section-projects')}
               role="link"
               aria-label="navigates to 'Projects' section"
             >
