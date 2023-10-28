@@ -40,9 +40,13 @@ settings:
 
 # Additional eslint rules.
 rules:
+  no-useless-escape:
+    - 'warn'
   import/no-extraneous-dependencies:
     - 'error'
     - devDependencies: true
+  jsx-a11y/label-has-associated-control:
+    - 'warn'
   react/jsx-props-no-spreading:
     - 'warn'
   react/no-unknown-property:

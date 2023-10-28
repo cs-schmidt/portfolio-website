@@ -1,0 +1,144 @@
+/* ==========================================================================
+   Contact Section
+   ========================================================================== */
+
+/* Contains styling for the application's "Contact" section component. */
+
+@use '../../vars' as v;
+@use 'sass:math';
+@use 'sass:color';
+
+.contact {
+  width: var(--page-width);
+  padding: 16px 24px;
+  background-color: v.$color-section-bg;
+  border-radius: 16px;
+}
+
+.contact__heading {
+  width: 100%;
+  margin-bottom: 16px;
+  font-family: v.$font-family-alt;
+  font-size: 2rem;
+  color: v.$color-primary;
+  border-bottom: 1px solid v.$color-primary;
+
+  & > svg {
+    margin-left: 12px;
+    font-size: 1.75rem;
+    color: v.$color-secondary;
+    vertical-align: middle;
+  }
+}
+
+.contact__content {
+  display: flex;
+  flex-flow: row wrap;
+  row-gap: 16px;
+  column-gap: 16px;
+  align-content: center;
+  justify-content: center;
+  padding: 0 8px;
+  color: v.$color-primary;
+}
+
+.contact__info {
+  flex-basis: 100%;
+
+  &-heading {
+    margin-bottom: 12px;
+  }
+}
+
+.contact__graphic {
+  max-height: 320px;
+}
+
+.contact__form {
+  display: flex;
+  flex-basis: 50ch;
+  flex-direction: column;
+  row-gap: 24px;
+  align-items: center;
+  color: v.$color-primary;
+
+  &-controls {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    width: 100%;
+
+    & > li {
+      display: flex;
+      flex-direction: column;
+    }
+
+    & > li > input {
+      display: block;
+      width: 100%;
+      height: 2rem;
+      padding: 0 6px;
+      font-size: 1rem;
+      color: black;
+      background-color: v.$color-primary;
+      border: none;
+      border-radius: 4px;
+    }
+
+    & > li > textarea {
+      display: block;
+      width: 100%;
+      padding: 0 6px;
+      overflow: hidden scroll;
+      font-size: 1rem;
+      color: black;
+      resize: none;
+      background-color: v.$color-primary;
+      border: none;
+      border-radius: 4px;
+    }
+  }
+
+  &-btn {
+    display: flex;
+    column-gap: 0.5em;
+    align-items: center;
+    justify-content: center;
+    max-width: fit-content;
+    padding: 0.75em 1em;
+    font-size: 1rem;
+    color: v.$color-main;
+    cursor: pointer;
+    background-color: color.change(v.$color-secondary, $alpha: 0.6);
+    border: 0.125em solid color.change(v.$color-secondary, $alpha: 0.4);
+    border-radius: 0.25em;
+    transition: background-color 200ms ease-in-out,
+      border-color 200ms ease-in-out;
+
+    & > span {
+      font-weight: 600;
+    }
+
+    &:not(:disabled) {
+      background-color: v.$color-secondary;
+      border-color: v.$color-secondary;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .contact__content {
+    display: grid;
+    grid-template-rows: fit-content 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact__form {
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
+  }
+
+  .contact__graphic {
+    justify-self: center;
+  }
+}
