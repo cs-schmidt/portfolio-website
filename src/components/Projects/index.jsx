@@ -26,12 +26,14 @@ export default function Projects() {
 
   const project2Icons = [
     simpleIcons.Html5,
-    simpleIcons.Bootstrap,
+    simpleIcons.CssThree,
+    simpleIcons.Sass,
     simpleIcons.Javascript,
+    simpleIcons.Typescript,
     simpleIcons.ReactJs,
     simpleIcons.Redux,
-    simpleIcons.Stripe,
     simpleIcons.Firebase,
+    simpleIcons.Stripe,
     simpleIcons.Webpack,
     simpleIcons.Babel,
     simpleIcons.Postcss
@@ -39,8 +41,10 @@ export default function Projects() {
 
   const project3Icons = [
     simpleIcons.Html5,
+    simpleIcons.CssThree,
     simpleIcons.Bootstrap,
     simpleIcons.Javascript,
+    simpleIcons.Typescript,
     simpleIcons.ReactJs,
     simpleIcons.Redux,
     simpleIcons.Chartdotjs,
@@ -116,10 +120,10 @@ export default function Projects() {
                 <FontAwesomeIcon icon={faScrewdriverWrench} />
               </a>
               <p className="project__description">
-                Designed a sleek and responsive Netflix clone using React and
-                Redux Toolkit. The project leverages Stripe to add payent and
-                subscription options for potential users, and Firebase for the
-                back-end.
+                Built a sleek and responsive front-end clone of Netflix&apos;s
+                website using React and Redux Toolkit. The project leverages
+                Stripe to add payment and subscription options for potential
+                users, and Google Firebase for the back-end.
               </p>
               <ul className="project__technologies">
                 {project2Icons.map((Icon, index) => (
@@ -150,10 +154,12 @@ export default function Projects() {
                 <FontAwesomeIcon icon={faScrewdriverWrench} />
               </a>
               <p className="project__description">
-                Created a cryptocurrency web platform which shows the latest
-                coins, prices, and market news. The project leverages Chart.js
-                to produce multiple interactive graphs for market performance,
-                enhancing data clarity for users through the use of RapidAPI.
+                Designed a cryptocurrency web platform which shows the latest
+                coins, prices, and market news. The project is built using
+                React, Redux Toolkit, and React Bootstrap for the front-end.
+                Chart.js is incorporated to produce multiple interactive graphs
+                for market performance, enhancing data clarity for users through
+                the use of RapidAPI.
               </p>
               <ul className="project__technologies">
                 {project3Icons.map((Icon, index) => (
