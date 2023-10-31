@@ -123,7 +123,7 @@ export default function MainNavbar() {
         <ul className="main-nav__external-links">
           <li>
             <a
-              href="https://github.com/CS-Schmidt"
+              href="https://github.com/cs-schmidt"
               rel="author external noopener noreferrer"
               target="_blank"
               aria-label="GitHub profile"
