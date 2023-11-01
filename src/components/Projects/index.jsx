@@ -66,9 +66,9 @@ export default function Projects() {
           {/* Project 1 */}
           <article className="project">
             <header className="project__header">
-              <h3 className="project__heading">Personal Portfolio Website</h3>
+              <h3 className="project__heading">Portfolio Website</h3>
               <div className="project__time-range">
-                <time>Jun. 2023</time>&ndash;<time>Jul. 2023</time>
+                <time>Sept. 2023</time>&ndash;<time>Oct. 2023</time>
               </div>
             </header>
             <div className="project__content">
@@ -106,7 +106,7 @@ export default function Projects() {
             <header className="project__header">
               <h3 className="project__heading">Netflix Clone</h3>
               <div className="project__time-range">
-                <time>Sept. 2023</time>&ndash;<time>Present</time>
+                <time>Nov. 2023</time>&ndash;<time>Present</time>
               </div>
             </header>
             <div className="project__content">
@@ -121,7 +121,7 @@ export default function Projects() {
                 {/* <FontAwesomeIcon icon={faScrewdriverWrench} /> */}
               </a>
               <p className="project__description">
-                Built a sleek and responsive front-end clone of Netflix&apos;s
+                Built a sleek and responsive frontend clone of Netflix&apos;s
                 website using Sass, TypeScript, React, React Router, Redux
                 Toolkit. The project leverages Stripe to add payment and
                 subscription options for potential users, and Google Firebase
@@ -141,7 +141,7 @@ export default function Projects() {
             <header className="project__header">
               <h3 className="project__heading">Coin Market Tracker</h3>
               <div className="project__time-range">
-                <time>Sept. 2023</time>&ndash;<time>Present</time>
+                <time>Nov. 2023</time>&ndash;<time>Present</time>
               </div>
             </header>
             <div className="project__content">

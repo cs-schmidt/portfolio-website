@@ -4,8 +4,8 @@ import { initializeApp } from 'firebase/app';
 import App from './App';
 
 // Firebase Configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 initializeApp({
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   apiKey: 'AIzaSyBjpFFBMc8zu6N7iwm6bYkjLXL2zlCZl18',
   authDomain: 'portfolio-website-e9666.firebaseapp.com',
   projectId: 'portfolio-website-e9666',

@@ -27,10 +27,6 @@
   & > img {
     vertical-align: middle;
   }
-
-  &:focus {
-    outline: 1px solid v.$color-focused;
-  }
 }
 
 .main-nav__menu {
@@ -104,10 +100,6 @@
   &--toggled > &-bar:nth-of-type(3) {
     transform: translateY(calc(-2 * $bar-height)) rotate(45deg);
   }
-
-  &:focus {
-    outline: 1px solid v.$color-focused;
-  }
 }
 
 .main-nav__section-links {
@@ -134,10 +126,6 @@
   & > li > button > svg {
     margin-right: 12px;
   }
-
-  & > li > button:focus {
-    outline: 1px solid v.$color-focused;
-  }
 }
 
 .main-nav__external-links {
@@ -156,10 +144,6 @@
     padding: 4px 8px;
     color: v.$color-primary;
   }
-
-  & > li > a:focus {
-    outline: 1px solid v.$color-focused;
-  }
 }
 
 @media (min-width: 600px) {
@@ -171,6 +155,10 @@
     max-width: none;
     height: auto;
     padding: unset;
+  }
+
+  .main-nav__logo:focus {
+    outline: 1px solid v.$color-focused;
   }
 
   .main-nav__section-links {
@@ -206,9 +194,13 @@
       transition: width 150ms ease-in;
     }
 
-    & > li > button:hover,
+    & > li > button:hover {
+      color: v.$color-primary;
+    }
+
     & > li > button:focus {
       color: v.$color-primary;
+      outline: 1px solid v.$color-focused;
     }
 
     & > li > button:hover::after,
@@ -232,9 +224,13 @@
       transition: color 150ms ease-in;
     }
 
-    & > li > a:hover,
-    & > li > a:focus {
-      color: v.$color-secondary;
+    & > li > button:hover {
+      color: v.$color-primary;
+    }
+
+    & > li > button:focus {
+      color: v.$color-primary;
+      outline: 1px solid v.$color-focused;
     }
   }
 }
