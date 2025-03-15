@@ -1,0 +1,5 @@
+# Commitlint Configuration
+
+# Lists the configurations we're inheriting properties from.
+extends:
+  - '@commitlint/config-conventional'
