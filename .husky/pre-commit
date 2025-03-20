@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Executes commands specified in the lint-staged configuration file on staged 
+# git files.
+npx lint-staged --concurrent false --verbose

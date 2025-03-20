@@ -1,0 +1,8 @@
+# Lint-Staged Configuration
+
+# NOTE: Set the `--concurrent` flag to `false` for lint-staged; avoids race conditions.
+# NOTE: Commands below match both hidden and non-hidden files in the staging area.
+
+# Applies specified commands (values) to matched files (keys) in the git staging
+# area.
+'?(.)*': 'prettier --ignore-unknown --write' # formats all prettier-supported staged files
