@@ -1,0 +1,36 @@
+# ESLint Configuration
+
+# When true, eslint will stop its cascade with this file.
+root: true
+
+# Lists the environments where we expect JavaScript files to be executed. Eslint
+# uses this informaton to understand what global variables should be available
+# (e.g. `window` in a browser, `global` in Node.js, etc.).
+env:
+  es2022: true # sets ecmaVersion parser option automatically.
+  browser: true
+  node: true
+
+# Lists the configurations we're inheriting properties from.
+extends:
+  - 'plugin:react/recommended' # extends `eslint-plugin-react`
+  - 'airbnb' # extends `eslint-config-airbnb`
+  - 'prettier' # extends `eslint-config-prettier`
+
+# Configures parser eslint uses to build an in-memory representation of each
+# JavaScript file we want to lint.
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  sourceType: 'module'
+
+# List the of third-party plugins we want to incorporate into eslint to extend
+# it's capabilities.
+plugins:
+  - 'react' # adds `eslint-plugin-react`
+
+# Plugins refer to the settings object which specifies information that should
+# be shared by all of their rules.
+settings:
+  react:
+    version: 'detect'
