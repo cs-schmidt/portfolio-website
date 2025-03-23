@@ -6,4 +6,5 @@
 # Applies specified commands (values) to matched files (keys) in the git staging
 # area.
 '?(.)*.([cm]js|js?(x))': 'eslint --fix' # lints all staged js-type files
+'?(.)*.?(s)css': 'stylelint --fix' # lints all staged css and scss files
 '?(.)*': 'prettier --ignore-unknown --write' # formats all prettier-supported staged files

@@ -18,6 +18,7 @@
   },
   "scripts": {
     "lint:js": "eslint --ignore-path .gitignore --fix . --ext .cjs,.js,.mjs,.jsx",
+    "lint:styles": "stylelint --ignore-path .gitignore --fix '**/*.{css,scss}'",
     "format": "prettier --ignore-path .gitignore --ignore-unknown --write .",
     "prepare": "husky install"
   },
@@ -30,6 +31,10 @@
     "eslint-plugin-react": "^7.31.11",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.4",
-    "prettier": "^2.8.0"
+    "prettier": "^2.8.0",
+    "stylelint": "^14.15.0",
+    "stylelint-config-prettier": "^9.0.4",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard-scss": "^6.1.0"
   }
 }
