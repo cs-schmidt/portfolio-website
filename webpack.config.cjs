@@ -2,6 +2,8 @@ const { join } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 // Sets `contextPath` to the closest parent directory with a `package.json` file
 // or `node_modules` folder. In most cases this would be the project root.
@@ -88,7 +90,7 @@ module.exports = {
   // Lists the of third-party plugins which extend webpack's capabilities.
   plugins: [
     new HtmlWebpackPlugin({
-      filename: '[name].html',
+      filename: 'index.html',
       template: join(contextPath, 'src/index.html')
     }),
     new MiniCSSExtractPlugin({
@@ -108,6 +110,13 @@ module.exports = {
           new ReactRefreshWebpackPlugin()
         ]
       : // Non-development env plugins.
-        [])
+        [
+          new ProgressBarPlugin(),
+          new BundleAnalyzerPlugin({
+            analyzerMode: 'disable',
+            generateStatsFile: true,
+            statsFilename: '.info/bundle-stats.json'
+          })
+        ])
   ]
 };
