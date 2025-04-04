@@ -3,8 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { SourceMapDevToolPlugin } = require('webpack');
+
+// NOTE: `SourceMapDevToolPlugin` makes source maps even if `devtool` is omitted.
 
 // Sets `contextPath` to the closest parent directory with a `package.json` file
 // or `node_modules` folder. In most cases this would be the project root.
@@ -49,7 +52,12 @@ module.exports = {
     clean: true
   },
   // Controls if and how source maps are generated.
-  devtool: isDevEnv ? 'eval-source-map' : 'source-map',
+  devtool:
+    nodeEnv === 'deployment'
+      ? false
+      : isDevEnv
+      ? 'eval-source-map'
+      : 'source-map',
   // Controls if and how source maps are generated.
   devServer: {
     port: 8080,
@@ -113,6 +121,9 @@ module.exports = {
       : // Non-development env plugins.
         [
           new ProgressBarPlugin(),
+          new CompressionWebpackPlugin({
+            threshold: 860
+          }),
           new BundleAnalyzerPlugin({
             analyzerMode: 'disable',
             generateStatsFile: true,
