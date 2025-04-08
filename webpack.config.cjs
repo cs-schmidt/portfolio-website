@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { SourceMapDevToolPlugin } = require('webpack');
@@ -121,6 +122,11 @@ module.exports = {
       : // Non-development env plugins.
         [
           new ProgressBarPlugin(),
+          new CopyWebpackPlugin({
+            patterns: [
+              { from: join(contextPath, 'robots.txt'), to: 'robots.txt' }
+            ]
+          }),
           new CompressionWebpackPlugin({
             threshold: 860
           }),
