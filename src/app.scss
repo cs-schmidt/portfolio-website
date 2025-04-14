@@ -1,4 +1,20 @@
+/* ==========================================================================
+   App Styles
+   ========================================================================== */
+
+/** 
+ * Global styling
+ *
+ * Contains global-level styling that applies across the entire application. 
+ * Many of the custom properties used in other style files are established here.
+ *
+ */
+
+@use '_vars' as v;
+@import 'fonts';
+
 :root {
+  /* Root styles */
   box-sizing: border-box;
 }
 
@@ -8,5 +24,24 @@
   box-sizing: inherit;
   padding: 0;
   margin: 0;
+  font-family: v.$font-family-main;
   line-height: 1.5;
+}
+
+body {
+  background-color: v.$color-main;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+.test-test---test {
+  color: blue;
 }

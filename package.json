@@ -69,6 +69,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.20.6",
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-brands-svg-icons": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "core-js": "^3.26.1",
     "firebase": "^9.14.0",
     "react": "^18.2.0",
