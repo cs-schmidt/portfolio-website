@@ -73,13 +73,13 @@
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@react-three/fiber": "^8.9.1",
+    "@react-three/fiber": "^7.0.27",
     "@react-three/postprocessing": "^2.7.0",
     "core-js": "^3.26.1",
     "firebase": "^9.14.0",
     "postprocessing": "^6.29.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "three": "^0.146.0"
   }
 }
