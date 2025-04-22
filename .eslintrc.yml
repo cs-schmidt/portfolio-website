@@ -17,6 +17,10 @@ extends:
   - 'airbnb' # extends `eslint-config-airbnb`
   - 'prettier' # extends `eslint-config-prettier`
 
+# Sets parser used by eslint. The babel parser allows eslint to parse additional
+# js syntax supported by babel.
+parser: '@babel/eslint-parser'
+
 # Configures parser eslint uses to build an in-memory representation of each
 # JavaScript file we want to lint.
 parserOptions:
@@ -42,6 +46,8 @@ rules:
   react/jsx-props-no-spreading:
     - 'warn'
   react/no-unknown-property:
+    - 'warn'
+  react/require-default-props:
     - 'warn'
 overrides:
   - files: ['webpack.config.cjs']
