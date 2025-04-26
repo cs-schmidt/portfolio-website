@@ -21,7 +21,7 @@ export default function MainBackground() {
       alpha: true
     });
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setClearColor(0x000000, 1);
+    renderer.setClearColor(0x141414, 1);
     return renderer;
   });
   return (
