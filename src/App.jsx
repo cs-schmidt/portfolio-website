@@ -1,4 +1,5 @@
 import React, { lazy } from 'react';
+import ErrorBoundary from './components/Error-Boundary';
 import TimedSuspense from './components/Timed-Suspense';
 import './app.scss';
 
@@ -8,11 +9,11 @@ const MainBackground = lazy(() => import('./components/Main-Background'));
 
 export default function App() {
   return (
-    <div>
+    <ErrorBoundary>
       <TimedSuspense minTime={2000}>
         <MainNavbar />
         <MainBackground />
       </TimedSuspense>
-    </div>
+    </ErrorBoundary>
   );
 }
