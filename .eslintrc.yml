@@ -49,6 +49,9 @@ rules:
     - 'warn'
   react/require-default-props:
     - 'warn'
+  react/forbid-prop-types:
+    - 'error'
+    - forbid: ['any', 'array']
 overrides:
   - files: ['webpack.config.cjs']
     rules:
