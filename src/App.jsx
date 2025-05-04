@@ -1,4 +1,4 @@
-import React, { lazy, useCallback } from 'react';
+import React, { lazy, useRef, useCallback } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import ErrorBoundary from './components/Error-Boundary';
 import TimedSuspense from './components/Timed-Suspense';
@@ -6,10 +6,13 @@ import LoadingScreen from './components/Loading-Screen';
 import './app.scss';
 
 // Lazy-loaded components
+const MainScroll = lazy(() => import('./components/Main-Scroll'));
 const MainNavbar = lazy(() => import('./components/Main-Navbar'));
 const MainBackground = lazy(() => import('./components/Main-Background'));
 
 export default function App() {
+  const scrollContainerRef = useRef();
+
   // Loading fallback.
   const loadingFallback = useCallback((waitedMinTime) => {
     const transitionDuration = 1500;
@@ -31,7 +34,12 @@ export default function App() {
   return (
     <ErrorBoundary>
       <TimedSuspense minTime={2000} fallback={loadingFallback}>
-        <MainNavbar />
+        <MainScroll scrollContainerRef={scrollContainerRef}>
+          <MainNavbar />
+          <div className="scroll-wrapper">
+            <div data-scroll-container ref={scrollContainerRef} />
+          </div>
+        </MainScroll>
         <MainBackground />
       </TimedSuspense>
     </ErrorBoundary>

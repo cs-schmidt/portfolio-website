@@ -42,6 +42,22 @@ button {
   border: none;
 }
 
+.scroll-wrapper {
+  $scrollbar-width: 11px;
+  $mask-height: v.$main-nav-height;
+  $mask-image-content: linear-gradient(
+    to bottom,
+    transparent $mask-height,
+    v.$color-main calc($mask-height + 8px) calc(100vh - $mask-height)
+  );
+  $mask-size-content: 100% 100%;
+
+  mask-image: $mask-image-content;
+  mask-size: $mask-size-content;
+  mask-position: 0 0, 100% 0;
+  mask-repeat: no-repeat, no-repeat;
+}
+
 .color-secondary {
   color: v.$color-secondary;
 }

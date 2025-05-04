@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Locomotive Scroll
+   ========================================================================== */
+
+/* Contains styling for the applications smooth scrolling component. */
+
+@use '../../vars' as v;
+
+.c-scrollbar {
+  z-index: v.$main-scroll-z-index;
+}
+
+.c-scrollbar_thumb {
+  background-color: v.$color-secondary;
+}
