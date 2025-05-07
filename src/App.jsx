@@ -9,6 +9,7 @@ import './app.scss';
 const MainScroll = lazy(() => import('./components/Main-Scroll'));
 const MainNavbar = lazy(() => import('./components/Main-Navbar'));
 const Intro = lazy(() => import('./components/Intro'));
+const About = lazy(() => import('./components/About'));
 const MainBackground = lazy(() => import('./components/Main-Background'));
 
 /** App component. */
@@ -45,6 +46,9 @@ export default function App() {
           <div className="scroll-wrapper">
             <div data-scroll-container ref={scrollContainerRef}>
               <Intro start={doneLoading} />
+              <main>
+                <About />
+              </main>
             </div>
           </div>
         </MainScroll>

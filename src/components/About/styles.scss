@@ -1,0 +1,134 @@
+/* ==========================================================================
+   "About me" Section Styles
+   ========================================================================== */
+
+/* Contains styling for the application's "About me" section component. */
+
+@use '../../vars' as v;
+@use 'sass:math';
+
+.about-me {
+  width: var(--page-width);
+  padding: 16px 24px;
+  background-color: v.$color-section-bg;
+  border-radius: 16px;
+}
+
+.about-me__heading {
+  width: 100%;
+  margin-bottom: 16px;
+  font-family: v.$font-family-alt;
+  font-size: 2rem;
+  color: v.$color-primary;
+  border-bottom: 1px solid v.$color-primary;
+
+  & > svg {
+    margin-left: 12px;
+    font-size: 1.75rem;
+    color: v.$color-secondary;
+    vertical-align: middle;
+  }
+}
+
+.about-me__content {
+  display: flex;
+  flex-flow: row wrap;
+  row-gap: 16px;
+  column-gap: 16px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.about-me__description {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  justify-content: space-between;
+  color: v.$color-primary;
+}
+
+.about-me__photo {
+  min-width: 0;
+  max-width: calc(3 * var(--page-column) + 3 * var(--page-gutter));
+  border-radius: 16px;
+}
+
+.about-me__education,
+.about-me__skills {
+  flex-basis: 100%;
+
+  &-heading {
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+    color: v.$color-secondary;
+    letter-spacing: 0.05em;
+  }
+
+  &-heading > svg {
+    margin-left: 12px;
+    font-size: 1rem;
+    color: v.$color-primary;
+    vertical-align: middle;
+  }
+}
+
+.about-me__degree {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  row-gap: 8px;
+  justify-content: space-between;
+  color: v.$color-primary;
+
+  &-institution {
+    font-weight: 600;
+  }
+
+  &-location,
+  &-time {
+    font-style: italic;
+    font-weight: 300;
+    text-align: right;
+  }
+}
+
+.about-me__skill-icons {
+  $icon-size: 32px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, $icon-size);
+  gap: 16px;
+  margin: auto;
+  color: v.$color-primary;
+
+  & > li {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (min-width: 600px) {
+  .about-me__content {
+    display: grid;
+    grid-template-rows: min-content auto auto;
+    grid-template-columns: 1fr max-content;
+  }
+
+  .about-me__photo {
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
+    align-self: flex-start;
+    justify-self: center;
+    max-width: none;
+    max-height: 320px;
+  }
+
+  .about-me__education {
+    grid-row: 2 / 3;
+  }
+
+  .about-me__skills {
+    grid-row: 3 / 4;
+    grid-column: 1 / 3;
+  }
+}
