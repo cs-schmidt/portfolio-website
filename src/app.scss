@@ -102,10 +102,10 @@ button {
     --page-columns: 12;
     --page-width: 840px;
     --page-margin: auto;
+  }
 
-    .page-section {
-      padding: v.$main-nav-height 0 0;
-    }
+  .page-section {
+    padding: v.$main-nav-height 0 0;
   }
 }
 

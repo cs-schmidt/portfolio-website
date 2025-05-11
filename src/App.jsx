@@ -11,6 +11,7 @@ const MainNavbar = lazy(() => import('./components/Main-Navbar'));
 const Intro = lazy(() => import('./components/Intro'));
 const About = lazy(() => import('./components/About'));
 const Projects = lazy(() => import('./components/Projects'));
+const Contact = lazy(() => import('./components/Contact'));
 const MainBackground = lazy(() => import('./components/Main-Background'));
 
 /** App component. */
@@ -51,6 +52,7 @@ export default function App() {
                 <About />
                 <Projects />
               </main>
+              <Contact />
             </div>
           </div>
         </MainScroll>
