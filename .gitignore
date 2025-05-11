@@ -3,3 +3,5 @@
 
 # Build ignores.
 public/
+.firebase/
+firebase-debug.log
