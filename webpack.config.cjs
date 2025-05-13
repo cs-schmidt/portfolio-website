@@ -111,6 +111,18 @@ module.exports = {
             maxSize: maxInlineSize
           }
         }
+      },
+      {
+        test: /\.(?:woff2?|eot|ttf|otf)$/i,
+        type: 'asset',
+        generator: {
+          filename: 'fonts/[name].[hash][ext]'
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: maxInlineSize
+          }
+        }
       }
     ]
   },

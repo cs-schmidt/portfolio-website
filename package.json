@@ -10,7 +10,7 @@
   },
   "homepage": "https://github.com/CS-Schmidt/portfolio-website#readme",
   "license": "MIT",
-  "private": "true",
+  "private": true,
   "type": "module",
   "repository": {
     "type": "git",
