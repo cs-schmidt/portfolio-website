@@ -17,10 +17,10 @@
     "url": "git+https://github.com/CS-Schmidt/portfolio-website.git"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack serve",
-    "prod": "cross-env NODE_ENV=production webpack build && firebase serve --only hosting",
-    "deploy": "cross-env NODE_ENV=deployment webpack build && firebase deploy",
-    "bundle-analyzer": "webpack-bundle-analyzer --port='auto' public/.info/bundle-stats.json public/",
+    "build:analyzer": "webpack-bundle-analyzer --port='auto' public/.info/bundle-stats.json public/",
+    "build:deploy": "cross-env NODE_ENV=deployment webpack build --config webpack.common.cjs",
+    "build:dev": "cross-env NODE_ENV=development webpack serve --config webpack.common.cjs",
+    "build:prod": "cross-env NODE_ENV=production webpack build --config webpack.common.cjs",
     "lint:js": "eslint --ignore-path .gitignore --fix . --ext .cjs,.js,.mjs,.jsx",
     "lint:styles": "stylelint --ignore-path .gitignore --fix '**/*.{css,scss}'",
     "format": "prettier --ignore-path .gitignore --ignore-unknown --write .",
@@ -66,7 +66,8 @@
     "webpack": "^5.75.0",
     "webpack-bundle-analyzer": "^4.7.0",
     "webpack-cli": "^5.0.0",
-    "webpack-dev-server": "^4.11.1"
+    "webpack-dev-server": "^4.11.1",
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.20.6",
