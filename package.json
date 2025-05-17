@@ -2,19 +2,19 @@
   "description": "The codebase for my personal portfolio website.",
   "author": {
     "name": "Ethan Schmidt",
-    "email": "es.schmidt.cs@gmail.com",
-    "url": "https://github.com/CS-Schmidt"
+    "email": "ebs.euler@gmail.com",
+    "url": "https://github.com/cs-schmidt"
   },
   "bugs": {
-    "url": "https://github.com/CS-Schmidt/portfolio-website/issues"
+    "url": "https://github.com/cs-schmidt/portfolio-website/issues"
   },
-  "homepage": "https://github.com/CS-Schmidt/portfolio-website#readme",
+  "homepage": "https://github.com/cs-schmidt/portfolio-website#readme",
   "license": "MIT",
   "private": true,
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CS-Schmidt/portfolio-website.git"
+    "url": "git+https://github.com/cs-schmidt/portfolio-website.git"
   },
   "scripts": {
     "build:analyzer": "webpack-bundle-analyzer --port='auto' public/.info/bundle-stats.json public/",
