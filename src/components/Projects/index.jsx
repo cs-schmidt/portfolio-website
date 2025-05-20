@@ -6,6 +6,7 @@ import {
   faScrewdriverWrench
 } from '@fortawesome/free-solid-svg-icons';
 import project1Photo from '../../assets/images/portfolio-website-screenshot.png';
+import project2Photo from '../../assets/images/netflix-clone-screenshot.png';
 import rectangle from '../../assets/images/rectangle.svg';
 import './styles.scss';
 
@@ -28,9 +29,9 @@ export default function Projects() {
     simpleIcons.Html5,
     simpleIcons.CssThree,
     simpleIcons.Sass,
-    simpleIcons.Javascript,
     simpleIcons.Typescript,
     simpleIcons.ReactJs,
+    simpleIcons.Reactrouter,
     simpleIcons.Redux,
     simpleIcons.Firebase,
     simpleIcons.Stripe,
@@ -43,9 +44,9 @@ export default function Projects() {
     simpleIcons.Html5,
     simpleIcons.CssThree,
     simpleIcons.Bootstrap,
-    simpleIcons.Javascript,
     simpleIcons.Typescript,
     simpleIcons.ReactJs,
+    simpleIcons.Reactrouter,
     simpleIcons.Redux,
     simpleIcons.Chartdotjs,
     simpleIcons.Firebase,
@@ -67,7 +68,7 @@ export default function Projects() {
             <header className="project__header">
               <h3 className="project__heading">Personal Portfolio Website</h3>
               <div className="project__time-range">
-                <time>Nov. 2022</time>&ndash;<time>Jan. 2023</time>
+                <time>Jun. 2023</time>&ndash;<time>Jul. 2023</time>
               </div>
             </header>
             <div className="project__content">
@@ -105,7 +106,7 @@ export default function Projects() {
             <header className="project__header">
               <h3 className="project__heading">Netflix Clone</h3>
               <div className="project__time-range">
-                <time>Feb. 2023</time>&ndash;<time>Present</time>
+                <time>Sept. 2023</time>&ndash;<time>Present</time>
               </div>
             </header>
             <div className="project__content">
@@ -116,14 +117,15 @@ export default function Projects() {
                 target="_blank"
                 aria-label="project code repository"
               >
-                <img src={rectangle} alt="background" />
-                <FontAwesomeIcon icon={faScrewdriverWrench} />
+                <img src={project2Photo} alt="Netflix clone landing page." />
+                {/* <FontAwesomeIcon icon={faScrewdriverWrench} /> */}
               </a>
               <p className="project__description">
                 Built a sleek and responsive front-end clone of Netflix&apos;s
-                website using React and Redux Toolkit. The project leverages
-                Stripe to add payment and subscription options for potential
-                users, and Google Firebase for the back-end.
+                website using Sass, TypeScript, React, React Router, Redux
+                Toolkit. The project leverages Stripe to add payment and
+                subscription options for potential users, and Google Firebase
+                for the back-end.
               </p>
               <ul className="project__technologies">
                 {project2Icons.map((Icon, index) => (
@@ -139,7 +141,7 @@ export default function Projects() {
             <header className="project__header">
               <h3 className="project__heading">Coin Market Tracker</h3>
               <div className="project__time-range">
-                <time>Mar. 2023</time>&ndash;<time>Present</time>
+                <time>Sept. 2023</time>&ndash;<time>Present</time>
               </div>
             </header>
             <div className="project__content">
@@ -156,10 +158,10 @@ export default function Projects() {
               <p className="project__description">
                 Designed a cryptocurrency web platform which shows the latest
                 coins, prices, and market news. The project is built using
-                React, Redux Toolkit, and React Bootstrap for the front-end.
-                Chart.js is incorporated to produce multiple interactive graphs
-                for market performance, enhancing data clarity for users through
-                the use of RapidAPI.
+                TypeScript, React, React Router, Redux Toolkit, and React
+                Bootstrap for the frontend. Chart.js is incorporated to produce
+                multiple interactive graphs for market performance, enhancing
+                data clarity for users through the use of RapidAPI.
               </p>
               <ul className="project__technologies">
                 {project3Icons.map((Icon, index) => (
