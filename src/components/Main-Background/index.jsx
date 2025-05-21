@@ -14,7 +14,7 @@ import './styles.scss';
 
 /** The site-wide background component. */
 export default function MainBackground() {
-  const initRenderer = useCallback((canvas) => {
+  const initializeRenderer = useCallback((canvas) => {
     const renderer = new WebGLRenderer({
       canvas,
       powerPreference: 'high-performance',
@@ -24,9 +24,10 @@ export default function MainBackground() {
     renderer.setClearColor(0x141414, 1);
     return renderer;
   });
+
   return (
     <div className="main-bg">
-      <Canvas gl={initRenderer} camera={{ position: [0, 0, 1] }}>
+      <Canvas gl={initializeRenderer} camera={{ position: [0, 0, 1] }}>
         <NoiseSphere />
         <EffectComposer>
           <Bloom
@@ -45,45 +46,40 @@ export default function MainBackground() {
   );
 }
 
+/** The main component for the background scene. */
 function NoiseSphere() {
-  const mesh = useRef();
-  const geometry = useRef();
-  const material = useRef();
-
+  const mesh = useRef(null);
+  const geometry = useRef(null);
+  const material = useRef(null);
   // NOTE: Component re-renders if the camera changes.
   const camera = useThree((state) => state.camera);
 
-  /**
-   * Calculates the radius the mesh needs to stay within the desired
-   * proportional bounds of the layout.
-   */
+  // Calulates the radius needed to contain the sphere within certain bounds.
   const properMeshRadius = useCallback(() => {
-    const { fov, aspect: aspectRatio } = camera;
-    const navHeight = document.querySelector('.main-nav').clientHeight; // navbar height in CSS pixel units.
-    const vGap = 16; // vertical gap in CSS pixel units.
-    const distance = camera.position.length(); // distance from camera to origin (i.e., mesh's center).
+    const navHeight = document.querySelector('.main-nav').clientHeight; // in CSS pixels.
+    const verticalGap = 16; // in CSS pixels.
+    let layoutWidth; // in CSS Pixels.
 
-    // Plane height variables.
-    const planeHeight = 2 * distance * Math.tan((fov / 2) * (Math.PI / 180));
-    const navPlaneHeight = planeHeight * (navHeight / window.innerHeight);
-    const vGapPlaneHeight = planeHeight * (vGap / window.innerHeight);
-    const meshVSpace = planeHeight - 2 * (navPlaneHeight + vGapPlaneHeight);
-    const distVSub = distance / (1 + (meshVSpace / 2) ** 2 / distance ** 2);
-    const heightSub = (distVSub * (meshVSpace / 2)) / distance;
-
-    // Plane width variables.
-    const planeWidth = aspectRatio * planeHeight;
-    let layoutWidth;
-
+    // Determine layout width.
     if (window.innerWidth < 600) layoutWidth = window.innerWidth - 2 * 16;
     else if (window.innerWidth < 900) layoutWidth = window.innerWidth - 2 * 32;
     else if (window.innerWidth < 1240)
       layoutWidth = Math.min(840, window.innerWidth - 2 * 24);
     else layoutWidth = Math.min(1040, window.innerWidth - 2 * 24);
 
-    const meshHSpace = planeWidth * (layoutWidth / window.innerWidth);
-    const distHSub = distance / (1 + (meshHSpace / 2) ** 2 / distance ** 2);
-    const widthSub = (distHSub * (meshHSpace / 2)) / distance;
+    // Scene variables.
+    const { fov, aspect: aspectRatio } = camera;
+    const distance = camera.position.length(); // distance from camera to origin (the mesh's center).
+    const planeHeight = 2 * distance * Math.tan((fov / 2) * (Math.PI / 180));
+    const planeWidth = aspectRatio * planeHeight;
+    const navPlaneHeight = planeHeight * (navHeight / window.innerHeight);
+    const vGapPlaneHeight = planeHeight * (verticalGap / window.innerHeight);
+    const meshHeight = planeHeight - 2 * (navPlaneHeight + vGapPlaneHeight);
+    const meshWidth = planeWidth * (layoutWidth / window.innerWidth);
+    const distVSub = distance / (1 + (meshHeight / 2) ** 2 / distance ** 2);
+    const heightSub = (distVSub * (meshHeight / 2)) / distance;
+    const distHSub = distance / (1 + (meshWidth / 2) ** 2 / distance ** 2);
+    const widthSub = (distHSub * (meshWidth / 2)) / distance;
 
     // Possible radii (relative to height and width).
     const heightEnclosedRadius = Math.sqrt(
@@ -119,8 +115,8 @@ function NoiseSphere() {
     []
   );
 
-  // Sets up a resize listener which changes the scale of the mesh to fit within
-  // the desired bounds.
+  // Adds a resize listener to the window which changes the scale of the mesh to
+  // fit within the desired bounds.
   useEffect(() => {
     const initialRadius = properMeshRadius();
     window.addEventListener(

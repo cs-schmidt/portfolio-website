@@ -11,7 +11,7 @@ import './styles.scss';
 
 /** About component. */
 export default function About() {
-  const icons = [
+  const skillIcons = [
     simpleIcons.Html5,
     simpleIcons.CssThree,
     simpleIcons.Sass,
@@ -80,7 +80,7 @@ export default function About() {
               <FontAwesomeIcon icon={faToolbox} />
             </h3>
             <ul className="about-me__skill-icons">
-              {icons.map((Icon, index) => (
+              {skillIcons.map((Icon, index) => (
                 <li key={index}>
                   <Icon size={32} />
                 </li>

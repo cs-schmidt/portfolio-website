@@ -3,7 +3,7 @@ import { CSSTransition } from 'react-transition-group';
 import ErrorBoundary from './components/Error-Boundary';
 import TimedSuspense from './components/Timed-Suspense';
 import LoadingScreen from './components/Loading-Screen';
-import './app.scss';
+import './App.scss';
 
 // Lazy-loaded components
 const MainScroll = lazy(() => import('./components/Main-Scroll'));
@@ -18,13 +18,9 @@ const MainBackground = lazy(() => import('./components/Main-Background'));
 export default function App() {
   const [doneLoading, setIsDoneLoading] = useState(false);
   const scrollContainerRef = useRef(null);
-
-  // Loading fallback.
   const loadingFallback = useCallback((waitedMinTime) => {
     const transitionDuration = 1500;
     return (
-      // The `in` prop must be set to `true` initially, then the `exit-*`
-      // classes will apply after it switches to `false`.
       <CSSTransition
         in={!waitedMinTime}
         timeout={{ appear: 0, enter: 0, exit: transitionDuration }}
