@@ -21,7 +21,7 @@ of its key features include smooth-scrolling animations, typing effects, and a
 
 MIT License
 
-Copyright (c) 2023 Ethan Schmidt
+Copyright (c) 2025 Ethan Schmidt
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
